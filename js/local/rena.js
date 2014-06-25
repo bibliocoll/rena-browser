@@ -2,7 +2,7 @@
  * jQuery rena.js 
  * Actions for querying the MPG.ReNa server
  *
- * Time-stamp: "2014-06-25 11:54:28 zimmel"
+ * Time-stamp: "2014-06-25 16:05:46 zimmel"
  * 
  * @author Daniel Zimmel <zimmel@coll.mpg.de>
  * @copyright 2014 MPI for Research on Collective Goods, Library
@@ -21,8 +21,7 @@ $(document).ready(function() {
             .replace(/>/g, '&gt;');
 		}
 		
-		/* get content */
-		
+		/* get content from click */
 		$('.getContent').click(function() {
 				$('#response').children().remove();
 				b = this;
@@ -54,7 +53,7 @@ $(document).ready(function() {
 						});
 				})
 						.fail(function() {
-								$('#TOCbox').append('<div class="error">there was an error!</div>');
+								$('#response').append('<div class="error">there was an error!</div>');
 						});
 		});
 		
@@ -72,5 +71,41 @@ $(document).ready(function() {
 				$('#main-content-switcher').fadeOut('slow');
 		});
 		
+
+		/* get content from searchbox */
+		$("#searchform").submit(function(event) {
+				event.preventDefault();
+				$('#responseFromSearchBox').children('p, div.error').remove();
+				var terms = $("input#terms").val();
+				$('#responseFromSearchBox').foundation('reveal', 'open');				
+				$('#responseFromSearchBox .preloader').fadeIn();
+
+				$.ajax({
+						url: 'http://vufind-demo.mpdl.mpg.de/vufind/Search/Results?lookfor='+terms+'&type=AllFields&view=jsonp&callback=searchbox',
+						dataType: 'jsonp',
+						jsonp: false,
+						jsonpCallback: "searchbox",
+						data: {'terms' : terms}
+				}).done(function(returnData) {
+						if (returnData.length < 5) {
+								$('#responseFromSearchBox').append('<div class="error">No results!</div>');
+						} else {
+						$.each(returnData, function (index, value) {
+								var desc = htmlEscape(value.description);
+								if (!desc || desc == 'undefined') desc = "no description available!";
+								$('#responseFromSearchBox').append('<p><a href="'+value.naturl_str_mv+'">'+value.title.substr(0, 60)+'</a></p>').fadeIn();
+						});
+						}
+						
+						$('#responseFromSearchBox .preloader').fadeOut();
+
+				})
+						.fail(function() {
+								$('#responseFromSearchBox').append('<div class="error">there was an error!</div>');
+						});
+
+
+		});
+
 });
 

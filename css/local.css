@@ -75,8 +75,13 @@ background:yellow;
     -webkit-transition-timing-function: ease-in-out;
 }
 
+
+#searchbox fieldset {
+background-color: #DCE9F0;
+}
+
 #main-content {
-padding-top:7%;
+padding-top:3%;
 min-height:90%;
 }
 #main-content > .row {

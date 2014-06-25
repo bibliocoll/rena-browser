@@ -13,6 +13,25 @@
   </head>
   <body>
     
+		<section id="searchbox">
+			<form id="searchform">
+				<div class="row">
+					<div class="small-8">
+						<div class="row collapse">
+							<fieldset>
+								<legend>Search for a database</legend>
+								<div class="small-10 columns">
+									<input id="terms" name="terms" type="text" id="right-label" placeholder="What kind of data are you looking for?">
+								</div>
+								<div class="small-2 columns">
+									<a href="#" class="button postfix">Go</a>
+								</div>
+								</fieldset>
+						</div>
+					</div>
+				</div>
+			</form>
+		</section>
 		
 		<section id="main-content">
 			<div class="first row centered-text">
@@ -34,11 +53,7 @@
 								The JSTOR project is a digital archive of fully
 								searchable back issues of scholarly journals. JSTOR's
 								agreements with publishers include an updating provision
-								referred to as a "moving wall". The moving wall is a
-								fixed period of time ranging, in most cases, from two to
-								five years, that defines the gap between the most recently
-								published issue and the date of the most recent issues
-								available in JSTOR.
+								referred to as a "moving wall". 
 							</p>
 						</a>
 					</div>
@@ -50,11 +65,7 @@
 								The JSTOR project is a digital archive of fully
 								searchable back issues of scholarly journals. JSTOR's
 								agreements with publishers include an updating provision
-								referred to as a "moving wall". The moving wall is a fixed
-								period of time ranging, in most cases, from two to
-								five years, that defines the gap between the most
-								recently published issue and the date of the most
-								recent issues available in JSTOR.
+								referred to as a "moving wall".
 							</p>
 						</a>
 					</div>
@@ -66,11 +77,7 @@
 								The JSTOR project is a digital archive of fully
 								searchable back issues of scholarly journals. JSTOR's
 								agreements with publishers include an updating
-								provision referred to as a "moving wall". The moving
-								wall is a fixed period of time ranging, in most cases,
-								from two to five years, that defines the gap between
-								the most recently published issue and the date of the
-								most recent issues available in JSTOR.
+								provision referred to as a "moving wall". 
 							</p>
 						</a> 
 					</div>
@@ -84,11 +91,7 @@
 								The JSTOR project is a digital archive of fully
 								searchable back issues of scholarly journals. JSTOR's
 								agreements with publishers include an updating
-								provision referred to as a "moving wall". The moving
-								wall is a fixed period of time ranging, in most cases,
-								from two to five years, that defines the gap between
-								the most recently published issue and the date of the
-								most recent issues available in JSTOR.
+								provision referred to as a "moving wall".
 							</p>
 						</a> 
 					</div>
@@ -100,11 +103,7 @@
 								The JSTOR project is a digital archive of fully
 								searchable back issues of scholarly journals. JSTOR's
 								agreements with publishers include an updating provision
-								referred to as a "moving wall". The moving wall is a
-								fixed period of time ranging, in most cases, from two to
-								five years, that defines the gap between the most
-								recently published issue and the date of the most recent
-								issues available in JSTOR.
+								referred to as a "moving wall".
 							</p>
 						</a>
 					</div>
@@ -116,11 +115,7 @@
 								The JSTOR project is a digital archive of fully
 								searchable back issues of scholarly journals. JSTOR's
 								agreements with publishers include an updating
-								provision referred to as a "moving wall". The moving
-								wall is a fixed period of time ranging, in most cases,
-								from two to five years, that defines the gap between
-								the most recently published issue and the date of the
-								most recent issues available in JSTOR.
+								provision referred to as a "moving wall".
 							</p>
 						</a>
 					</div>
@@ -133,6 +128,11 @@
 				
     <div id="responseDescription" class="reveal-modal small" data-reveal>
 			<a class="close-reveal-modal button radius alert">&#215;</a>
+    </div>
+
+    <div id="responseFromSearchBox" class="reveal-modal medium" data-reveal>
+			<a class="close-reveal-modal button radius alert">&#215;</a>
+			<div class="preloader" style="display:none"></div>
     </div>
 		
 		<footer class="row">
