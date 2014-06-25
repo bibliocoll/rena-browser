@@ -1,11 +1,11 @@
 body {
 background: url('../img/bgcoll-logo.png') no-repeat;
 background-position:80% 10%;
-font-family: 'Open Sans', sans-serif;
+font-family: 'open_sansregular', sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6,button, .button {
-font-family: 'Open Sans', sans-serif;
+font-family: 'open_sansregular', sans-serif;
 }
 
 .getContent { 
