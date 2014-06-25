@@ -1,0 +1,140 @@
+body {
+background: url('../img/bgcoll-logo.png') no-repeat;
+background-position:80% 10%;
+font-family: 'Open Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,button, .button {
+font-family: 'Open Sans', sans-serif;
+}
+
+.getContent { 
+cursor: pointer;
+}
+
+.circle1 {
+/* border-radius: 50%; */
+/* height: 300px; */
+/* width: 300px; */
+/* background-color: yellow; */
+/* background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+/* 	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange); */
+/* 	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+width:200px;
+height:200px;
+border-radius:50%;
+font-size:30px;
+color:#fff;
+line-height:200px;
+text-align:center;
+background:#000;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.circle2 {
+/* border-radius: 50%; */
+/* height: 300px; */
+/* width: 300px; */
+/* background-color: yellow; */
+/* background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+/* 	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange); */
+/* 	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+width:200px;
+height:200px;
+border-radius:50%;
+font-size:30px;
+color:#fff;
+line-height:200px;
+text-align:center;
+background:red;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.circle3 {
+/* border-radius: 50%; */
+/* height: 300px; */
+/* width: 300px; */
+/* background-color: yellow; */
+/* background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+/* 	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange); */
+/* 	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+width:200px;
+height:200px;
+border-radius:50%;
+font-size:30px;
+color:#fff;
+line-height:200px;
+text-align:center;
+background:yellow;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+#main-content {
+padding-top:7%;
+min-height:90%;
+}
+#main-content > .row {
+padding-bottom:3%;
+}
+
+.enlarge {
+width: 250px;
+height: 250px;
+line-height:250px;
+z-index:99;
+}
+
+#response a {
+font-size:normal;
+margin:10px;
+width:180px;
+height:180px;
+vertical-align:top;
+}
+
+#responseDescription {
+padding-right: 6rem;
+padding-top: 2rem;
+}
+
+#content-box a p {
+color:#000;
+}
+
+.preloader {
+
+width: 80px;
+height: 80px;
+top: 35%;
+}
+
+.invisible {
+display:none;
+}
+
+/* Cart options */
+.simpleCart_items{
+padding-bottom: 20px;
+}
+
+.headerRow {
+display:none
+}
+
+.itemRow {
+padding-bottom: 10px;
+}
+
+/* change style for accordion */
+dl.accordion dd.active a.item_name {
+background-color:#fff;
+}
+dl.accordion dd.active a.item_add {
+background-color:#007095;
+}
