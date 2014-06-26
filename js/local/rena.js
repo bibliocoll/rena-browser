@@ -2,7 +2,7 @@
  * jQuery rena.js 
  * Actions for querying the MPG.ReNa server
  *
- * Time-stamp: "2014-06-25 16:05:46 zimmel"
+ * Time-stamp: "2014-06-26 09:50:08 zimmel"
  * 
  * @author Daniel Zimmel <zimmel@coll.mpg.de>
  * @copyright 2014 MPI for Research on Collective Goods, Library
@@ -21,17 +21,14 @@ $(document).ready(function() {
             .replace(/>/g, '&gt;');
 		}
 		
-		/* get content from click */
-		$('.getContent').click(function() {
+		
+		/* get content from click on browse */
+		function getContentFromBrowse(myclass) {
 				$('#response').children().remove();
-				b = this;
-				// setTimeout(function() {
-				// 		$('.circle').removeClass('enlarge');
-				// 		$(b).addClass('enlarge');
-				// }, 50);
+				
 				$('#content-box').children().fadeOut('fast');
 				$('#main-content-switcher').fadeIn('slow');
-				var myID = $(this).attr('id').trim(); 
+				var myID = $(myclass).attr('id').trim(); 
 				
 				$('.preloader').fadeIn();
 				
@@ -55,31 +52,16 @@ $(document).ready(function() {
 						.fail(function() {
 								$('#response').append('<div class="error">there was an error!</div>');
 						});
-		});
-		
-		$(document).on('click','#response a',function() {
-				event.preventDefault();
-				$('#responseDescription').children('span, a.goto, br').remove();
-				$('#responseDescription').append('<span>'+$(this).attr('title').replace(/##/g,'<br/>')+'</span><br/><br/><a class="goto button radius large" href="'+$(this).attr('href')+'">go to database</a>');
-				$('#responseDescription').foundation('reveal', 'open');
-		});
-		
-		
-		$('#main-content-switcher').click(function() {
-				$('#response').children().remove();
-				$('#content-box').children().fadeIn('slow');
-				$('#main-content-switcher').fadeOut('slow');
-		});
-		
+		}
 
-		/* get content from searchbox */
-		$("#searchform").submit(function(event) {
+		/* get content from form submit */
+		function getContentFromSearch(event) {
 				event.preventDefault();
 				$('#responseFromSearchBox').children('p, div.error').remove();
 				var terms = $("input#terms").val();
 				$('#responseFromSearchBox').foundation('reveal', 'open');				
 				$('#responseFromSearchBox .preloader').fadeIn();
-
+				
 				$.ajax({
 						url: 'http://vufind-demo.mpdl.mpg.de/vufind/Search/Results?lookfor='+terms+'&type=AllFields&view=jsonp&callback=searchbox',
 						dataType: 'jsonp',
@@ -103,9 +85,39 @@ $(document).ready(function() {
 						.fail(function() {
 								$('#responseFromSearchBox').append('<div class="error">there was an error!</div>');
 						});
+		}
 
-
+		/* get content from click */
+		$('.getContent').click(function() {
+				getContentFromBrowse(this);
 		});
+
+
+		/* submit by button */
+		$('a#submit').click(function(event) {
+				getContentFromSearch(event);
+		});
+
+
+		/* submit by other methdod ("enter") */
+		$("#searchform").submit(function(event) {
+				getContentFromSearch(event);
+		});
+
+		$(document).on('click','#response a',function() {
+				event.preventDefault();
+				$('#responseDescription').children('span, a.goto, br').remove();
+				$('#responseDescription').append('<span>'+$(this).attr('title').replace(/##/g,'<br/>')+'</span><br/><br/><a class="goto button radius large" href="'+$(this).attr('href')+'">go to database</a>');
+				$('#responseDescription').foundation('reveal', 'open');
+		});
+		
+		
+		$('#main-content-switcher').click(function() {
+				$('#response').children().remove();
+				$('#content-box').children().fadeIn('slow');
+				$('#main-content-switcher').fadeOut('slow');
+		});
+
 
 });
 
