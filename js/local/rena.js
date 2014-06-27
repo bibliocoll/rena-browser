@@ -2,7 +2,7 @@
  * jQuery rena.js 
  * Actions for querying the MPG.ReNa server
  *
- * Time-stamp: "2014-06-26 09:50:08 zimmel"
+ * Time-stamp: "2014-06-27 17:43:19 zimmel"
  * 
  * @author Daniel Zimmel <zimmel@coll.mpg.de>
  * @copyright 2014 MPI for Research on Collective Goods, Library
@@ -23,14 +23,15 @@ $(document).ready(function() {
 		
 		
 		/* get content from click on browse */
-		function getContentFromBrowse(myclass) {
+		function getContentFromBrowse(event, myclass) {
+				event.preventDefault();
 				$('#response').children().remove();
 				
 				$('#content-box').children().fadeOut('fast');
 				$('#main-content-switcher').fadeIn('slow');
 				var myID = $(myclass).attr('id').trim(); 
 				
-				$('.preloader').fadeIn();
+				$('#main-content .preloader').fadeIn();
 				
 				$.ajax({
 						url: 'http://vufind-demo.mpdl.mpg.de/vufind/Search/Results?lookfor=&type=AllFields&view=jsonp&callback=fische&filter%5B%5D=inst_txtF_mv%3A%22MBRG%22&filter%5B%5D=predef_txtF_mv%3A%22MBRG%3ACollective+Goods%27+Selection%22&filter%5B%5D=subject_txtF_mv%3A%22'+myID+'%22',
@@ -39,9 +40,7 @@ $(document).ready(function() {
 						jsonpCallback: "fische",
 						data: {'myID' : myID}
 				}).done(function(returnData) {
-						$('#TOCbox div#loader').toggle();
-						$('#TOCboxIntro').remove(); 
-						$('.preloader').fadeOut();
+						$('#main-content .preloader').fadeOut();
 						
 						$.each(returnData, function (index, value) {
 								var desc = htmlEscape(value.description);
@@ -73,9 +72,9 @@ $(document).ready(function() {
 								$('#responseFromSearchBox').append('<div class="error">No results!</div>');
 						} else {
 						$.each(returnData, function (index, value) {
-								var desc = htmlEscape(value.description);
+								var desc = htmlEscape(value.description).replace(/##/g,'<br/>');
 								if (!desc || desc == 'undefined') desc = "no description available!";
-								$('#responseFromSearchBox').append('<p><a href="'+value.naturl_str_mv+'">'+value.title.substr(0, 60)+'</a></p>').fadeIn();
+								$('#responseFromSearchBox').append('<p><a class="button radius" href="'+value.naturl_str_mv+'">'+value.title.substr(0, 60)+'</a><br/>'+desc+'</p>').fadeIn();
 						});
 						}
 						
@@ -88,8 +87,8 @@ $(document).ready(function() {
 		}
 
 		/* get content from click */
-		$('.getContent').click(function() {
-				getContentFromBrowse(this);
+		$('.getContent').click(function(event) {
+				getContentFromBrowse(event, this);
 		});
 
 
@@ -117,6 +116,18 @@ $(document).ready(function() {
 				$('#content-box').children().fadeIn('slow');
 				$('#main-content-switcher').fadeOut('slow');
 		});
+
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('.page-scroll a').bind('click', function(event) {
+   //     var $anchor = $(this);
+        $('html, body').stop().animate({
+        //    scrollTop: $($anchor.attr('href')).offset().top
+						scrollTop: $('#main-content').offset().top 
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
 
 
 });

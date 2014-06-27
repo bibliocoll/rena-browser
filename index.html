@@ -4,83 +4,78 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MPI COLL MPG.ReNa</title>
+    <title>MPI COLL MPG.ReNa-Browser</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="fonts/foundation-icons/foundation-icons.css" />
     <link rel="stylesheet" href="css/local.css" />
 		<link rel="stylesheet" href="img/octicons.css">
     <script src="js/vendor/modernizr.js"></script>
-		<link rel="stylesheet" href="fonts/stylesheet.css">
+		<link rel="stylesheet" href="fonts/stylesheet.css" />
 <!-- Issues: Google Font API does not work with Firefox (Firefox is picky with quotes in CSS) -->
 <!--		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
   </head>
   <body>
     
-		<section id="searchbox">
-			<form id="searchform">
-				<div class="row">
-					<div class="small-8">
-						<div class="row collapse">
-							<fieldset>
-								<legend>Search for a database</legend>
-								<div class="small-10 columns">
-									<input id="terms" name="terms" type="text" id="right-label" placeholder="What kind of data are you looking for?">
-								</div>
-								<div class="small-2 columns">
-									<a id="submit" href="#" class="button postfix">Go</a>
-								</div>
-								</fieldset>
-						</div>
-					</div>
-				</div>
-			</form>
-		</section>
-		
-		<section id="main-content">
+		<section id="intro">
 			<div class="first row centered-text">
 				<div class="large-12 columns">
 					<h2>Find databases from the MPI COLL selection!</h2>
 					<h4 class="subheader">
 						Tailored access to the eResource Navigator of the Max Planck Society 
-						<a id="main-content-switcher" class="button radius alert invisible">Choose another field</a>
 					</h4>
 				</div>
 			</div>
+			<div id="searchbox">
+				<form id="searchform">
+					<div class="row">
+						<div class="small-12 columns">
+							<div class="row collapse">
+								<fieldset>
+									<!--<legend>Search for a database</legend>-->
+									<div class="small-10 columns">
+										<input id="terms" name="terms" type="text" id="right-label" placeholder="What kind of data are you looking for?">
+									</div>
+									<div class="small-2 columns">
+										<a id="submit" href="#" class="button postfix">Go</a>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+      <div class="page-scroll">
+				<p><a id="scrolldown" href="#">feel like browsing?</a></p>
+				<p>
+        <a href="#" class="button round large">
+          <i class="fi-arrow-down"></i>
+        </a>
+</p>
+      </div>
+		</section>
+		
+		<section id="main-content">
+				<div class="row">
+					<div class="small-12"><a id="main-content-switcher" class="button radius alert invisible"><i class="fi-refresh"></i> back to selection</a></div>
+				</div>
 			<div id="content-box">
 				<div class="row centered-text">
 					<div class="medium-4 large-4 columns supporticons">
 						<a href="#" id="Economics" class="getContent">
 							<span class="octicon octicon-graph" style="font-size:128px"></span>
 							<h4>Economics</h4>
-							<p>--DEMO--
-								The JSTOR project is a digital archive of fully
-								searchable back issues of scholarly journals. JSTOR's
-								agreements with publishers include an updating provision
-								referred to as a "moving wall". 
-							</p>
 						</a>
 					</div>
 					<div class="medium-4 large-4 columns supporticons">
 						<a href="#" id="Law" class="getContent">
 							<span class="octicon octicon-law" style="font-size:128px"></span>
 							<h4>Law</h4>
-							<p>--DEMO--
-								The JSTOR project is a digital archive of fully
-								searchable back issues of scholarly journals. JSTOR's
-								agreements with publishers include an updating provision
-								referred to as a "moving wall".
-							</p>
 						</a>
 					</div>
 					<div class="medium-4 large-4 columns supporticons">
 						<a href="#" id="Psychology" class="getContent">
 							<span class="octicon octicon-broadcast" style="font-size:128px"></span>
 							<h4>Psychology</h4>
-							<p>--DEMO--
-								The JSTOR project is a digital archive of fully
-								searchable back issues of scholarly journals. JSTOR's
-								agreements with publishers include an updating
-								provision referred to as a "moving wall". 
-							</p>
 						</a> 
 					</div>
 				</div>
@@ -89,36 +84,18 @@
 						<a href="#" id="Multidisciplinary" class="getContent">
 							<span class="octicon octicon-mortar-board" style="font-size:128px"></span>
 							<h4>Multidisciplinary</h4>
-							<p>--DEMO--
-								The JSTOR project is a digital archive of fully
-								searchable back issues of scholarly journals. JSTOR's
-								agreements with publishers include an updating
-								provision referred to as a "moving wall".
-							</p>
 						</a> 
 					</div>
 					<div class="medium-4 large-4 columns supporticons">
 						<a href="#" id="Political Science" class="getContent">
 							<span class="octicon octicon-megaphone" style="font-size:128px"></span>
 							<h4>Politics</h4>
-							<p>--DEMO--
-								The JSTOR project is a digital archive of fully
-								searchable back issues of scholarly journals. JSTOR's
-								agreements with publishers include an updating provision
-								referred to as a "moving wall".
-							</p>
 						</a>
 					</div>
 					<div class="medium-4 large-4 columns supporticons">
 						<a href="#" id="Sociology" class="getContent">
 							<span class="octicon octicon-organization" style="font-size:128px"></span>
 							<h4>Sociology</h4>
-							<p>--DEMO--
-								The JSTOR project is a digital archive of fully
-								searchable back issues of scholarly journals. JSTOR's
-								agreements with publishers include an updating
-								provision referred to as a "moving wall".
-							</p>
 						</a>
 					</div>
 				</div>
@@ -126,6 +103,8 @@
 			<div class="preloader" style="display:none"></div>
       <div class="row" id="response">
 			</div>
+
+
 		</section>
 				
     <div id="responseDescription" class="reveal-modal small" data-reveal>
@@ -137,28 +116,17 @@
 			<div class="preloader" style="display:none"></div>
     </div>
 		
-		<footer class="row">
-			<div class="large-12 columns">
-				<hr />
-				<div class="row">
-					<div class="large-6 columns">
+		<footer>
+
             <p>&copy; MPI Collective Goods Library, Bonn 2014</p>
-					</div>
-					<div class="large-6 columns">
-						<ul class="inline-list right">
-							<li><a href="#">Link 1</a></li>
-							<li><a href="#">Link 2</a></li>
-							<li><a href="#">Link 3</a></li>
-							<li><a href="#">Link 4</a></li>
-						</ul>
-					</div>
-				</div>
-			</div> 
+
 		</footer>
 		
     <script src="js/vendor/jquery.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/local/rena.js"></script>
+
 		
     <script>
       $(document).foundation();
