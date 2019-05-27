@@ -20,10 +20,6 @@ already included:
 - jQuery 2+ [http://jquery.com]
 - GitHub Octicons [http://octicons.github.com]
 
-# Live Demo
-
-Try here: http://www.coll.mpg.de/bib/rena-public/
-
 # Installation & Setup
 
 Not much
